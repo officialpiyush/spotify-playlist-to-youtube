@@ -1,6 +1,10 @@
 {
     "port": 2264,
     "secret": "",
+    "spotify": {
+        "id": "",
+        "secret": ""
+    },
     "creds": {
         "web": {
             "client_id": "",
