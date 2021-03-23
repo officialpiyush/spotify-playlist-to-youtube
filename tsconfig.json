@@ -6,6 +6,7 @@
         "experimentalDecorators": true,
         "module": "commonjs",
         "moduleResolution": "node",
+        "resolveJsonModule": true,
         "noImplicitAny": true,
         "outDir": "build",
         "pretty": true,

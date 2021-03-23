@@ -1,6 +1,7 @@
 {
     "port": 2264,
-    "creds:": {
+    "secret": "",
+    "creds": {
         "web": {
             "client_id": "",
             "project_id": "",
@@ -8,7 +9,12 @@
             "token_uri": "https://oauth2.googleapis.com/token",
             "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
             "client_secret": "",
-            "redirect_uris": [            ]
+            "redirect_uris": [],
+            "scopes": [
+                "https://www.googleapis.com/auth/youtube",
+                "https://www.googleapis.com/auth/youtubepartner",
+                "https://www.googleapis.com/auth/youtube.force-ssl"
+            ]
         }
     }
 }
