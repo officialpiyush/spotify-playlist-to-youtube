@@ -17,7 +17,8 @@
         "types": [
             "node",
             "google-auth-library",
-            "googleapis"
+            "googleapis",
+            "ytsr"
         ]
     },
     "exclude": [
