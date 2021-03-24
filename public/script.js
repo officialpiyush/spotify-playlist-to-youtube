@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 async function onConvertClick() {
-    const playlistURL = document.getElementById("playlist").nodeValue
+    const playlistURL = document.getElementById("playlist").value
     if (!playlistURL) {
         Swal.fire({
             icon: "error",

@@ -16,8 +16,8 @@ const parser = new SpotifyParser()
 
 const app = express()
 app.use(cookieParser())
-app.use(express.static("../../public"))
-app.set("views", "../../views")
+app.use(express.static("public"))
+app.set("views", "views")
 app.set("view engine", "ejs")
 
 app.get("/", async (req: express.Request, res: express.Response) => {
@@ -70,7 +70,7 @@ app.get("/api/user", async (req: express.Request, res: express.Response) => {
 })
 
 app.post("/convert", async (req: express.Request, res: express.Response) => {
-    if (!req.cookies.auth) return res.status(401).send("kek")
+    if (!req.cookies.auth) return res.status(401).send("Please login and continue")
     const playlist = req.query.playlist
 
     if (!playlist) res.status(400).send("no playlist")
