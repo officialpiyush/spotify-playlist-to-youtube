@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <title>Spo2YT</title>
+</head>
+
+<body class="bg-gray-200 select-none">
+    <div class="">
+        <div id="header" class="flex-none text-center mt-4">
+            <p class="font-mono text-black font-bold uppercase">Made by
+                <a class="text-indigo-600 hover:underline" href="https://github.com/officialpiyush">@officialpiyush</a> and is <a class="text-red-400 hover:underline" href="https://github.com/officialpiyush/spotify-playlist-to-youtube">opensource</a>
+            </p>
+        </div>
+        <div class="min-h-screen flex justify-center items-center w-full">
+            <div class="mx-8 grid grid-cols-1 md:grid-cols-12 w-full">
+                <div class="col-span-1 md:col-span-3"></div>
+                <div class="col-span-1 md:col-span-6">
+                    <div class="flex justify-center items-center mb-6">
+                        <img src="https://i.vgy.me/DJrQjN.png" class="" alt="logo">
+                    </div>
+                    <input type="text" id="playlist" class="w-full bg-white border-solid py-2 px-2 md:py-4 md:px-4 outline-none rounded-md shadow-xl text-center font-mono text-2xl" placeholder="Enter Playlist URL">
+                    <div class="w-full flex justify-center pt-9 outline-none">
+                        <button onclick="onConvertClick()" class="mx-2 px-4 py-3 bg-green-500 rounded-lg font-mono font-semibold text-gray-200 focus:outline-none hover:bg-green-600">Convert</button>
+                        <a role="button" href="/api/handleuser" class="mx-2 px-4 py-3 bg-blue-500 rounded-lg font-mono font-semibold text-gray-200 focus:outline-none hover:bg-blue-600">
+                            <%=logButtonText%>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

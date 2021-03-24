@@ -16,9 +16,24 @@ const parser = new SpotifyParser()
 
 const app = express()
 app.use(cookieParser())
+app.use(express.static("../../public"))
+app.set("views", "../../views")
+app.set("view engine", "ejs")
 
 app.get("/", async (req: express.Request, res: express.Response) => {
-    res.send("WIP")
+    let isLoggedIn = false
+    if (req.cookies.auth) {
+        try {
+            jwt.verify(req.cookies.auth, config.secret)
+            isLoggedIn = true
+        } catch (error) {
+
+        }
+    }
+
+    res.render("index.ejs", {
+        logButtonText: isLoggedIn ? "Logout" : "Login"
+    })
 })
 
 app.get("/login", async (req: express.Request, res: express.Response) => {
@@ -38,9 +53,19 @@ app.get("/auth_callback", async (req: express.Request, res: express.Response) =>
     }
 })
 
-app.get("/logged_in", async (req: express.Request, res: express.Response) => {
+app.get("/api/handleuser", async (req: express.Request, res: express.Response) => {
+    if (req.cookies.auth) {
+        res.clearCookie("auth")
+        res.redirect("/")
+    }
+
+    res.redirect("/login")
+})
+
+app.get("/api/user", async (req: express.Request, res: express.Response) => {
     if (!req.cookies.auth) return res.status(401).send("kek")
 
+    console.log(jwt.verify(req.cookies.auth, config.secret) as Auth.Credentials)
     res.send("logged in ")
 })
 
