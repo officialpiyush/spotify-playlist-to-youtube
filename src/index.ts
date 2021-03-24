@@ -48,7 +48,7 @@ app.get("/auth_callback", async (req: express.Request, res: express.Response) =>
             if (err) { return res.redirect("/") }
 
             res.cookie("auth", jwt.sign(tokenData!!, config.secret))
-            return res.redirect("/logged_in")
+            return res.redirect("/")
         })
     }
 })
@@ -57,6 +57,7 @@ app.get("/api/handleuser", async (req: express.Request, res: express.Response) =
     if (req.cookies.auth) {
         res.clearCookie("auth")
         res.redirect("/")
+        return
     }
 
     res.redirect("/login")
