@@ -58,7 +58,6 @@ export default class SpotifyParser {
         const playlist: Playlist = await fetch(`${this._baseURL}/playlists/${id}`, {
             headers: this._requestHeaders
         }).then(r => r.json())
-        console.log(playlist)
 
         const tracks = playlist.tracks.items.map((item) => this.resolveTrack(item.track))
         let next = playlist.tracks.next

@@ -61,7 +61,6 @@ app.post("/convert", async (req: express.Request, res: express.Response) => {
     res.status(200).send("Started service, playlist shall be available in your youtube profile when completed")
 
     const data = await parser.getTracks(playlistId as string)
-
     const ytService = google.youtube("v3")
 
     const playlistCreateData = await ytService.playlists.insert({
@@ -72,9 +71,6 @@ app.post("/convert", async (req: express.Request, res: express.Response) => {
         requestBody: {
             snippet: {
                 title: data.name
-            },
-            status: {
-                privacyStatus: "unlisted"
             }
         }
     })
